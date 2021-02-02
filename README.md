@@ -1,8 +1,11 @@
 We decided to focus on the financial sector for our project,as it is a growing interest for our group and has recently been dominating the public domain.  We found a few projects related to this.
 
 [Analyzing amazon's stock with R](https://towardsdatascience.com/analyzing-stocks-using-r-550be7f5f20d?gi=9b59a41a1892)
+
 [Analyzing stock market data with R](https://rpubs.com/markloessi/495609)
+
 [R data analysis in the Russell 2000](https://www.business-science.io/investments/2016/11/30/Russell2000_Analysis.html)
+
 Some questions we are curious about are 
 Being able to tell what kind of growth is unsustainable
 How to identify cyclical trends in different sectors
