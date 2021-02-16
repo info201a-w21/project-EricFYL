@@ -1,5 +1,6 @@
 ---
 title: "Exploratory Analysis"
+author: "Sam Cooke, Jianhong Dong, Eric Fan, Jason Hyun Jung"
 date: "`r Sys.Date()`"
 ---
 
