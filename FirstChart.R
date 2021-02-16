@@ -11,8 +11,8 @@ toptech <- read.csv("TSL.csv", header = TRUE)
 
 head(toptech)
 
-ggplot(toptech, aes(x = Price, y = Change)) + 
+price_change <- ggplot(toptech, aes(x = Price, y = Change)) + 
   geom_line()
 
-
+print(price_change + ggtitle("Price Change between high and low stocks"))
 
