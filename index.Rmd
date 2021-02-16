@@ -1,3 +1,8 @@
+---
+title: "Exploratory Analysis"
+date: "`r Sys.Date()`"
+---
+
 In the Markdown document you create, you should run the other scripts to generate the necessary content your report:
 
 Write an introductory paragraph explaining the domain/data set (feel free to borrow from the project proposal)
