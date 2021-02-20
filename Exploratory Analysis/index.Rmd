@@ -14,7 +14,7 @@ date: "`r Sys.Date()`"
 source('summary.R')
 ```
 
-With our summary information, we decided to pull a few values that we thought could be important for comparison. Eventually we want to look at individual companies, so it is important to see what the average company's market capitalization is, as well as the median market cap. It's very clear that the average market cap is much larger than the median, at 94.6B vs 32.1B. This means that the middle of the pack 
+With our summary information, we decided to pull a few values that we thought could be important for comparison. Eventually we want to look at individual companies, so it is important to see what the average company's market capitalization is, as well as the median market cap. It's very clear that the average market cap is much larger than the median, at 94.6B vs 32.1B. This means that the huge outlier companies like apple and microsoft are so big that they bring up the average, and that the data is left skewed. 
 
 # Table
 
