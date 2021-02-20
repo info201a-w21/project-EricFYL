@@ -11,4 +11,4 @@ toptech <- read.csv("TSL.csv", header = TRUE)
 
 candname<- ggplot(toptech,aes(x=reorder(Name,Change),y=Change,fill="")) + 
   geom_bar(stat='identity')+labs(y="change",x="Names")
-candname + coord_flip()
+print(candname + coord_flip())

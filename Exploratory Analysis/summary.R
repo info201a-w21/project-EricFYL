@@ -1,0 +1,10 @@
+tech_companies <- read.csv("TSL.csv", header = TRUE)
+summary_info <- list()
+summary_info$num_observations <- nrow(tech_companies)
+summary_info$avg_market_cap <- mean(tech_companies[["Market.Cap..Billions."]])
+summary_info$median_market_cap <- median(tech_companies[["Market.Cap..Billions."]])
+summary_info$max_market_cap <- max(tech_companies[["Market.Cap..Billions."]])
+summary_info$average_price <- median(tech_companies[["Price"]])
+summary_info$average_volume <- mean(tech_companies[["Volume"]])
+
+print(summary_info)

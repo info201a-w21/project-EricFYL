@@ -1,5 +1,11 @@
-# This chart looks at the relationship between PE ratio and Price per share to see whether
-# they are correlated even with the extremely expensive stocks.
+# This chart looks at the relationship between average volume and the price per share of
+# A stock. I think that this might be an interesting relationship because companies with a
+# higher marketcap generally have a higher price per share, and there large marketcap companies
+# are traded usually with more volume because of how important and recognizable they are.
+# Another factor that goes into this relationship is that some retail investors can't afford
+# to buy some highly priced stocks, so that might drive the volume down. Additionally,
+# cheaper stocks are bought in larger quantities, which would drive the volume down for higher priced stocks
+# Either way, I think it might be interesting to see.
 
 library(stringr)
 library(tidyverse)
@@ -8,11 +14,7 @@ library(ggplot2)
 
 tech_companies <- read.csv("TSL.csv", header = TRUE)
 
-ggplot(tech_companies, aes(x = PE.Ratio, y = Price)) + 
+price_vs_volume <- ggplot(tech_companies, aes(x = Price, y = Avg.Vol)) + 
   geom_point() + geom_smooth(method=lm, se=FALSE)
 
-ggplot(tech_companies, aes(x = PE.Ratio, y = Market.Cap..Billions.)) + 
-  geom_point() + geom_smooth(method=lm, se=FALSE)
-
-# This additional chart shows that there is little correlation between a large PE Ratio and 
-# actual market cap, so there are definitely more important measures of value.
+print(price_vs_volume + ggtitle("Relationship Between Stock Price and Avg. Volume"))
