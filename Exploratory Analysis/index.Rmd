@@ -6,8 +6,16 @@ date: "`r Sys.Date()`"
 # Intro
   Our group decided to analyze data from the stock market, more specifically, the biggest players in the tech sector. We first became interested in this topic after seeing all of the excitement in the stock market with Gamestop earlier this year. The dataset we selected looks at a few important values from 100 important companies. There are 9 variables in the dataframe, starting with the ticker symbol for each stock, and the name of the company. There is also price of the stock, daily change in both dollars and percent, daily volume of the stock traded, average volume of the stock, market capitalization in billions, and P/E ratio. Market cap is a valuation of how much a company is worth, calculated by number of outstanding shares multiplied by share price. P/E ratio is the ratio of share price to the company's most recent earnings per share. It is a good way to determine if a company is over/under valued. We hope that we can analyze this data and become better acquianted with the stock market, as well as how these variables interact with eachother. 
 
+<<<<<<< HEAD
 
 
+=======
+# Intro
+  Our group decided to analyze data from the stock market, more specifically, the biggest players in the tech sector. We first became interested in this topic after seeing all of the excitement in the stock market with Gamestop earlier this year. The dataset we selected looks at a few important values from 100 important companies. There are 9 variables in the dataframe, starting with the ticker symbol for each stock, and the name of the company. There is also price of the stock, daily change in both dollars and percent, daily volume of the stock traded, average volume of the stock, market capitalization in billions, and P/E ratio. Market cap is a valuation of how much a company is worth, calculated by number of outstanding shares multiplied by share price. P/E ratio is the ratio of share price to the company's most recent earnings per share. It is a good way to determine if a company is over/under valued. We hope that we can analyze this data and become better acquianted with the stock market, as well as how these variables interact with eachother. 
+
+
+
+>>>>>>> b0aebfecdb337f1e9e0a2f4dd3813d628ab48e80
 # Summary Information
 
 ```{r, echo = FALSE, message =FALSE}
@@ -40,7 +48,11 @@ This chart was made to display that when the price is high for a stock, they wou
 source('SecondChart.R')
 ```
 
+<<<<<<< HEAD
 This chart was made to rank the change in the stock price of the companies, so that we can see which companies did better on that day compared to the other ones.
+=======
+This chart shows all the price changes of the top 100 tech companies and it’s ranked from the highest to lowest. From this chart we will be able to see what companies have their prices increased the most and what have their prices decreased the most. From the chart I noticed that more companies have  positive price changes than companies have negative price changes. And the most price increased is around 15 which is more than the most price decreased(around 7). So in general more companies tend to have positive price changes and the changes are usually larger than the negative changes
+>>>>>>> b0aebfecdb337f1e9e0a2f4dd3813d628ab48e80
 
 
 
