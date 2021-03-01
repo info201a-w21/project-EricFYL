@@ -2,7 +2,8 @@ library(stringr)
 library(tidyverse)
 library(tidyr)
 library(ggplot2)
-
+library(data.table)
+setwd("/Users/samcooke/Desktop/project-EricFYL/Exploratory Analysis")
 TopTech <- read.csv("TSL.csv", header = TRUE)
 
 assigning <- function(n) {
@@ -31,5 +32,5 @@ top_tech_with_percent <- left_join(TopTech, percent_change)
 table <- top_tech_with_percent %>% 
   group_by(percent_change) %>% 
   summarise(number = n())
-
-prop.table(table(table))
+table <- data.table(table)
+print(table)
