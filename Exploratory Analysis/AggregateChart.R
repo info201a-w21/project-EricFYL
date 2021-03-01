@@ -4,7 +4,7 @@ library(tidyr)
 library(ggplot2)
 library(data.table)
 setwd("/Users/samcooke/Desktop/project-EricFYL/Exploratory Analysis")
-TopTech <- read.csv("TSL.csv", header = TRUE)
+top_tech <- read.csv("TSL.csv", header = TRUE)
 
 assigning <- function(n) {
   if (n > 0.01) {
@@ -18,19 +18,19 @@ assigning <- function(n) {
   }
 }
 
-percent_change <- sapply(TopTech$X..Change, assigning)
+percent_change <- sapply(top_tech$X..Change, assigning)
 percent_change <- data.frame(percent_change)
 
-TopTech <- TopTech %>% 
+top_tech <- top_tech %>%
   mutate(n = row_number())
 
-percent_change <- percent_change %>% 
+percent_change <- percent_change %>%
   mutate(n = row_number())
 
-top_tech_with_percent <- left_join(TopTech, percent_change)
+top_tech_with_percent <- left_join(top_tech, percent_change)
 
-table <- top_tech_with_percent %>% 
-  group_by(percent_change) %>% 
+table <- top_tech_with_percent %>%
+  group_by(percent_change) %>%
   summarise(number = n())
 table <- data.table(table)
 print(table)
