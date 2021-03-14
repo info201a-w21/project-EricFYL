@@ -116,12 +116,29 @@ page_three <- tabPanel(
 
 page_four <- tabPanel(
   "Fourth Page",
-  titlePanel("plot")
+  titlePanel("Stock Variable Bar Plot"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(
+        inputId = "variable",
+        label = "variable displayed",
+        choices = col_names
+      ),
+      selectInput(
+        inputId = "color_var",
+        label = "color of bar",
+        choices = c("blue", "red", "green", "purple")
+      )
+    ),
+    mainPanel(
+      h3("stock variable"),
+      plotlyOutput(outputId = "plot_data")
+    )
+  )
 )
 
 page_five <- tabPanel(
   "Summary Takeaways",
-
   titlePanel("Takeaways"),
   p(""),
   p("With the dataframe that we created, we are able to see which stocks
