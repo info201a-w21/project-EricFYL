@@ -10,6 +10,7 @@ style_file("app_server.R")
 lint("app_server.R")
 
 stock_data <- read.csv("TSLDATA.csv")
+toptech <- read.csv("TSL.csv")
 
 server <- function(input, output) {
   output$stockData <- renderPlotly({
@@ -117,4 +118,31 @@ server <- function(input, output) {
   })
 
   output$table <- renderTable(watchlist_data)
+}
+
+chart2data <- toptech %>%
+  arrange(desc(Price)) %>%
+  slice(1:5, 96:100) %>%
+  select(
+    Name, Price, Volume, PE.Ratio, Change
+  )
+choice <- chart2data %>%
+  select(
+    Price, Volume, PE.Ratio, Change
+  )
+col_names <- colnames(choice)
+plot_data <- chart2data
+server <- function(input, output) {
+  output$plot_data <- renderPlotly({
+    stock_price_plot <- ggplot(data = plot_data) +
+      geom_bar(aes(x = Name, y = chart2data[[input$variable]]),
+        size = 1, fill = input$color_var, stat = "identity"
+      ) +
+      theme(axis.text.x = element_text(angle = 20)) +
+      labs(
+        title = "Stock variable chart",
+        x = "Company name", y = input$variable
+      )
+    ggplotly(stock_price_plot)
+  })
 }

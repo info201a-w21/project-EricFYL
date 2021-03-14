@@ -82,11 +82,36 @@ page_three <- tabPanel(
   )
 )
 
+page_four <-
+  tabPanel(
+    "Forth Page",
+    titlePanel("stock variable bar plot"),
+    sidebarLayout(
+      sidebarPanel(
+        selectInput(
+          inputId = "variable",
+          label = "variable displayed",
+          choices = col_names
+        ),
+        selectInput(
+          inputId = "color_var",
+          label = "color of bar",
+          choices = c("blue", "red", "green", "purple")
+        )
+      ),
+      mainPanel(
+        h3("stock variable"),
+        plotlyOutput(outputId = "plot_data")
+      )
+    )
+  )
+
 
 
 ui <- navbarPage(
   "Final Deliverable",
   page_one,
   page_two,
-  page_three
+  page_three,
+  page_four
 )
