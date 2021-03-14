@@ -51,7 +51,6 @@ This chart shows all the price changes of the top 100 tech companies and it’s 
 
 
 
-
 ### Chart 3
 
 ```{r, echo = FALSE, message =FALSE}
