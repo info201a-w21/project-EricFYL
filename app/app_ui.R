@@ -114,6 +114,17 @@ page_three <- tabPanel(
   )
 )
 
+chart2data <- toptech %>%
+  arrange(desc(Price)) %>%
+  slice(1:5, 96:100) %>%
+  select(
+    Name, Price, Volume, PE.Ratio, Change
+  )
+choice <- chart2data %>%
+  select(
+    Price, Volume, PE.Ratio, Change
+  )
+col_names <- colnames(choice)
 page_four <- tabPanel(
   "Fourth Page",
   titlePanel("Stock Variable Bar Plot"),
