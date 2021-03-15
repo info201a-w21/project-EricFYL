@@ -27,12 +27,10 @@ color_choices <- c(
 # Introduction page
 intro_page <- tabPanel(
   "Introduction Page",
-  img(
-    src = "https://i.redd.it/489ohv5xzvf31.jpg",
-    height = "50%", width = "50%"
-  ),
+  includeCSS("styles.css"),
+  tags$img(src = "background.jpg"),
   titlePanel("Introduction"),
-  p("With the movement in the stock market in the past few months,
+  tags$p("With the movement in the stock market in the past few months,
     we thought that it might be interesting to analyze some of the
     patterns that occur in the data. Analyzing historic stock data
     is common in the financial sector, and is called technical
