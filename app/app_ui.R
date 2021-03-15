@@ -67,12 +67,26 @@ page_one <- tabPanel(
     market for that particular security. In the second page of analysis,
     we take a look at the moving averages and specifically which ones are
     close."),
-  p("")
+  p("The third indicator we took a look at is the price, volume, change,
+  and PE ratio of the top 100 tech companies, we want to find out if there
+  are any relations between any two of them. In order to do that, we grouped 
+  all companies into two groups by price and made two charts in order to make 
+  it easier to compare, the top variable chart which includes the 50 companies
+  with highest prices and the bottom variable chart which includes the other 50
+  companies with lower prices. We made it available for users to pick their own
+  sample size, they can choose to have top and bottom 5 or 10(any number from 1-50
+  since there are 100 in total) companies ranked by price. By changing the variable
+  displayed, we can find out if there are relationships between variables, we can 
+  answer questions like do higher prices always lead to higher PE ratio? Does volume 
+  depend on  prices? Do companies with high prices have a lower possibility of having
+  negative changes? we wanted to find out things like these and that's the purpose of
+  us making those two variable charts
+  ")
 )
 
 # 2nd page
 page_two <- tabPanel(
-  "Second Page",
+  "Candlestick Chart",
   titlePanel("Candlestick Chart"),
   sidebarLayout(
     sidebarPanel(
@@ -99,7 +113,7 @@ page_two <- tabPanel(
 
 # 3rd page
 page_three <- tabPanel(
-  "Third Page",
+  "Moving Averages Plot",
   titlePanel("Moving Averages Plot"),
   sidebarLayout(
     sidebarPanel(
@@ -133,7 +147,7 @@ choice <- toptech %>%
   )
 col_names <- colnames(choice)
 page_four <- tabPanel(
-  "Fourth Page",
+  "Stock Variable Bar Plot",
   titlePanel("Stock Variable Bar Plot"),
   sidebarLayout(
     sidebarPanel(
@@ -188,7 +202,16 @@ page_five <- tabPanel(
     have had the opportunity to sell at 75 only a couple months later,
     which is a decent return. While I would have liked to see a larger
     % change, this shows that it can be a powerful tool."),
-  p("")
+  p("in the fourth page, after comparing several variables for both top and bottom charts, we found
+    out that most of the companies with higher prices have higher PE ratios,
+    which makes sense since PE ratio = price /earning, top chart(higher price
+    companies) have more companies with negative changes compared to bottom chart
+    (lower price companies) no matter what the sample size is, it could be because
+    prices tend to increase since there is not a lot of room for those low price
+    companies to decrease anymore. It looks like the volume does not have a lot to
+    do with the price. But the biggest takeaway we found in those two charts is that
+    there are no guaranteed relationships between any two of those four variables.
+    There could be one variable tends to lead to a result but it's never 100%.")
 )
 
 # Building navbar with all pages
