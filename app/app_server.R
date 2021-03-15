@@ -6,9 +6,6 @@ library(lintr)
 library(styler)
 library(zoo)
 
-style_file("app_server.R")
-lint("app_server.R")
-
 stock_data <- read.csv("TSLDATA.csv")
 toptech <- read.csv("TSL.csv")
 
@@ -148,12 +145,6 @@ server <- function(input, output) {
       select(
         Name, Price, Volume, PE.Ratio, Change
       )
-
-    choice <- chart2data %>%
-      select(
-        Price, Volume, PE.Ratio, Change
-      )
-    col_names <- colnames(choice)
 
     plot_data <- chart2data
     stock_price_plot <- ggplot(data = plot_data) +
