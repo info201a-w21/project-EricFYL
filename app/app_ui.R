@@ -5,6 +5,7 @@ library(ggplot2)
 library(lintr)
 library(styler)
 library(plotly)
+library(shinythemes)
 style_file("app_ui.R")
 lint("app_ui.R")
 
@@ -28,7 +29,10 @@ color_choices <- c(
 # Introduction page
 page_one <- tabPanel(
   "Introduction Page",
-
+  img(
+    src = "https://i.redd.it/489ohv5xzvf31.jpg",
+    height = "50%", width = "50%"
+  ),
   titlePanel("Introduction"),
   p("     With the movement in the stock market in the past few months,
     we thought that it might be interesting to analyze some of the
@@ -171,6 +175,7 @@ page_five <- tabPanel(
 
 # Building navbar with all pages
 ui <- navbarPage(
+  theme = shinytheme("superhero"),
   "Final Deliverable",
   page_one,
   page_two,
