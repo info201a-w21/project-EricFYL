@@ -138,13 +138,18 @@ server <- function(input, output) {
     arrange(abs(moving_average_ratio - 1))
   output$table <- renderTable(watchlist_data)
 
+
+
   output$plot_data <- renderPlotly({
+    num_choice <- input$top_num_choice
+
     chart2data <- toptech %>%
       arrange(desc(Price)) %>%
-      slice(1:5, 96:100) %>%
+      slice(1:num_choice) %>%
       select(
         Name, Price, Volume, PE.Ratio, Change
       )
+
     choice <- chart2data %>%
       select(
         Price, Volume, PE.Ratio, Change
@@ -158,9 +163,31 @@ server <- function(input, output) {
       ) +
       theme(axis.text.x = element_text(angle = 20)) +
       labs(
-        title = "Stock variable chart",
-        x = "Company name", y = input$variable
+        title = "Top Stock Variable Chart",
+        x = "Company Name", y = input$variable
       )
     ggplotly(stock_price_plot)
+  })
+
+  output$plot_data2 <- renderPlotly({
+    num_choice <- input$top_num_choice
+    chart2_low_data <- toptech %>%
+      arrange(Price) %>%
+      slice(1:num_choice) %>%
+      select(
+        Name, Price, Volume, PE.Ratio, Change
+      )
+
+
+    stock_price_plot_low <- ggplot(data = chart2_low_data) +
+      geom_bar(aes(x = Name, y = chart2_low_data[[input$variable]]),
+        size = 1, fill = input$color_var, stat = "identity"
+      ) +
+      theme(axis.text.x = element_text(angle = 20)) +
+      labs(
+        title = "Bottom Stock Variable Chart",
+        x = "Company Name", y = input$variable
+      )
+    ggplotly(stock_price_plot_low)
   })
 }

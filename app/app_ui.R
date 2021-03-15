@@ -134,14 +134,21 @@ page_four <- tabPanel(
         inputId = "color_var",
         label = "color of bar",
         choices = c("blue", "red", "green", "purple")
+      ),
+      sliderInput(
+        inputId = "top_num_choice",
+        label = "Please Select a Number of Companies:",
+        min = 1, max = 50, value = 5
       )
     ),
     mainPanel(
       h3("stock variable"),
-      plotlyOutput(outputId = "plot_data")
+      plotlyOutput(outputId = "plot_data"),
+      plotlyOutput(outputId = "plot_data2")
     )
   )
 )
+
 
 page_five <- tabPanel(
   "Summary Takeaways",
