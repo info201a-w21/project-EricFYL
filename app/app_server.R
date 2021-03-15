@@ -39,10 +39,6 @@ server <- function(input, output) {
         xaxis = list(title = "Years"),
         yaxis = list(title = "Value of Stock (USD)")
       )
-
-
-
-    main_plot
   })
 
   output$stockhighlow <- renderPlotly({
@@ -118,7 +114,6 @@ server <- function(input, output) {
       )
     third_plot <- third_plot %>%
       add_lines(y = ~moving_avg_2, name = "Moving Average 2")
-    third_plot
   })
 
   # Creating the watchlist dataframe by
@@ -142,24 +137,21 @@ server <- function(input, output) {
     select(Name, moving_average_ratio) %>%
     arrange(abs(moving_average_ratio - 1))
   output$table <- renderTable(watchlist_data)
-}
 
-chart2data <- toptech %>%
-  arrange(desc(Price)) %>%
-  slice(1:5, 96:100) %>%
-  select(
-    Name, Price, Volume, PE.Ratio, Change
-  )
-choice <- chart2data %>%
-  select(
-    Price, Volume, PE.Ratio, Change
-  )
-col_names <- colnames(choice)
-
-plot_data <- chart2data
-
-server <- function(input, output) {
   output$plot_data <- renderPlotly({
+    chart2data <- toptech %>%
+      arrange(desc(Price)) %>%
+      slice(1:5, 96:100) %>%
+      select(
+        Name, Price, Volume, PE.Ratio, Change
+      )
+    choice <- chart2data %>%
+      select(
+        Price, Volume, PE.Ratio, Change
+      )
+    col_names <- colnames(choice)
+
+    plot_data <- chart2data
     stock_price_plot <- ggplot(data = plot_data) +
       geom_bar(aes(x = Name, y = chart2data[[input$variable]]),
         size = 1, fill = input$color_var, stat = "identity"

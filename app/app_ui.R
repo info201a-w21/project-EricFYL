@@ -9,6 +9,7 @@ style_file("app_ui.R")
 lint("app_ui.R")
 
 stock_data <- read.csv("TSLDATA.csv")
+toptech <- read.csv("TSL.csv")
 
 # choices for 2nd page widget
 chosen_stock <- unique(stock_data$Name)
@@ -114,13 +115,7 @@ page_three <- tabPanel(
   )
 )
 
-chart2data <- toptech %>%
-  arrange(desc(Price)) %>%
-  slice(1:5, 96:100) %>%
-  select(
-    Name, Price, Volume, PE.Ratio, Change
-  )
-choice <- chart2data %>%
+choice <- toptech %>%
   select(
     Price, Volume, PE.Ratio, Change
   )
