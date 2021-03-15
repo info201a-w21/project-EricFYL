@@ -35,7 +35,7 @@ server <- function(input, output) {
         low = ~low
       ) %>%
       layout(
-        title = "Stock Chart",
+        title = "2 Year Chart for Stock",
         xaxis = list(title = "Years"),
         yaxis = list(title = "Value of Stock (USD)")
       )
@@ -61,8 +61,7 @@ server <- function(input, output) {
         type = "scatter"
       ) %>%
       layout(
-        title = "Correlation between the highest and Lowest Prices
-        for Stocks",
+        title = "High vs Low of the Day for Stock",
         xaxis = list(title = "Lowest Value of Stock"),
         yaxis = list(title = "Highest Value of Stock")
       )

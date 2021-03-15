@@ -6,6 +6,7 @@ library(lintr)
 library(styler)
 library(plotly)
 library(shinythemes)
+
 style_file("app_ui.R")
 lint("app_ui.R")
 
@@ -41,7 +42,14 @@ page_one <- tabPanel(
     analysis, or TA. There are a variety of indicators that people use
     to find a good entry point in different stocks, so we decided to take
     a look at those and try it ourselves."),
-  p("     The first of indicators we took a look at is called the ."),
+  p("With the first page, we wanted to take a look at how variable the
+    stock was depending on how highly priced it was. We did this by creating
+    a chart that shows the highs vs lows of the day for an individual stock.
+    We did it this way because it made it much easier to look at the data
+    with fewer datapoints and less noise. On this page, we also included a 2
+    year chart of the stocks, so that the reader could get a better idea
+    of what theyre looking at, because the scatterplot is hard to read
+    if you don't know what its analyzing."),
   p("     The second indicator we took a look at is called a moving average, 
     which is an average of the stock price over a certain period of time.
     These can be short-term, like over the span of a couple days, which makes
@@ -157,7 +165,17 @@ page_four <- tabPanel(
 page_five <- tabPanel(
   "Summary Takeaways",
   titlePanel("Takeaways"),
-  p(""),
+  p("With the second page, we found that generally that stocks tend to be
+    more variable at their lowest prices, and also at their highest prices.
+    This makes sense because if you look at the chart above, you can see
+    that the stock often pulls back when it is overextended either way.
+    This means that when it is super high, it is more variable because
+    it either jumped up and pulled back within the span of a couple of days,
+    and when it is low, it did the opposite, where the stock price heavily
+    decreased over the span of a few days and increased heavily over the next
+    few. We think this happens because at a certain point, buying pressure will
+    eventually overpower selling pressure and vice versa, and cause a large
+    spike in either direction."),
   p("With the dataframe that we created, we are able to see which stocks
     have 50 Day and 200 Day moving averages that are closest together, and
     with the chart we are able to look at those stocks and see if they are
