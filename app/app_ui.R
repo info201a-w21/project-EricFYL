@@ -79,7 +79,6 @@ page_one <- tabPanel(
   )
 )
 
-
 # 2nd page
 page_two <- tabPanel(
   "Second Page",
@@ -131,7 +130,9 @@ choice <- toptech %>%
   select(
     Price, Volume, PE.Ratio, Change
   )
+
 col_names <- colnames(choice)
+
 page_three <- tabPanel(
   "Third Page",
   titlePanel("Stock Variable Bar Plot"),
